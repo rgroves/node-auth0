@@ -313,6 +313,13 @@ describe('OAuthAuthenticator', function() {
       expect(signIn).to.throw(ArgumentError, 'password field is required');
     });
 
+    it('should not allow an empty password', function() {
+      var auth = this.authenticator;
+      var signIn = auth.passwordGrant.bind(auth, { username: 'samples@auth0.com', password: '' });
+
+      expect(signIn).to.throw(ArgumentError, 'password field is required');
+    });
+
     it('should accept a callback', function(done) {
       this.authenticator.passwordGrant(userData, done.bind(null, null));
     });
