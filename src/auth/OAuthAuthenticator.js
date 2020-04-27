@@ -250,7 +250,7 @@ OAuthAuthenticator.prototype.refreshToken = function(data, cb) {
   };
 
   var data = extend(defaultFields, data);
-  if (typeof data.refresh_token !== 'string' || data.refresh_token.split().length === 0) {
+  if (typeof data.refresh_token !== 'string' || data.refresh_token.trim().length === 0) {
     throw new ArgumentError('refresh_token is required');
   }
 
