@@ -190,7 +190,7 @@ OAuthAuthenticator.prototype.passwordGrant = function(userData, options, cb) {
     throw new ArgumentError('username field is required');
   }
 
-  if (typeof data.password !== 'string' || data.password.split().length === 0) {
+  if (typeof data.password !== 'string' || data.password.trim().length === 0) {
     throw new ArgumentError('password field is required');
   }
 
