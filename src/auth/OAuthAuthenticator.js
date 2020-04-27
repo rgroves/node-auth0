@@ -186,7 +186,7 @@ OAuthAuthenticator.prototype.passwordGrant = function(userData, options, cb) {
     throw new ArgumentError('Missing user data object');
   }
 
-  if (typeof data.username !== 'string' || data.username.split().length === 0) {
+  if (typeof data.username !== 'string' || data.username.trim().length === 0) {
     throw new ArgumentError('username field is required');
   }
 
