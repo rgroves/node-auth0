@@ -299,6 +299,13 @@ describe('OAuthAuthenticator', function() {
       expect(signIn).to.throw(ArgumentError, 'username field is required');
     });
 
+    it('should not allow an empty username', function() {
+      var auth = this.authenticator;
+      var signIn = auth.passwordGrant.bind(auth, { username: '', password: 'pwd' });
+
+      expect(signIn).to.throw(ArgumentError, 'username field is required');
+    });
+
     it('should require a password', function() {
       var auth = this.authenticator;
       var signIn = auth.passwordGrant.bind(auth, { username: 'samples@auth0.com' });
